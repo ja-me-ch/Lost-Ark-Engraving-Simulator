@@ -3,7 +3,7 @@
  
  ## FAQ
  - How do I reset the page? Refresh the page.
- - 
+ 
 ## Planned Future Improvements
 - Fix up bugs
 - Code refactoring

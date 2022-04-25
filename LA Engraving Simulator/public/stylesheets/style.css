@@ -1,0 +1,118 @@
+body {
+    background-color: rgb(49, 49, 49);
+    color: white;
+    font-size: 14px;
+}
+
+.border-red {
+    border: 1px solid red;
+}
+
+label {
+    margin-bottom: 7px;
+}
+
+.engraving-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.overlevel-node {
+    padding-right: 8px;
+    font-size: 26px;
+    color: red;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.engraving-display {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-self: flex-start;
+    padding-top: 50px;
+    margin-right: 20px;
+
+}
+
+.engravings-and-accessories {
+    display: flex;
+    flex-direction: row;
+}
+
+.playerClass-equipped-engravings {
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+    padding-top: 20px
+}
+
+.accessory-row {
+    display: flex;
+}
+
+.accessory {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.engraving-level-pair {
+    /* border: 1px solid red; */
+    height: 23px;
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+.diamond-node-container {
+    padding-left: 20px;
+}
+
+.diamond-node {
+    font-size: 2rem;
+}
+
+.filled {
+    color: rgb(34, 166, 255);
+}
+
+.unfilled {
+    color: grey
+}
+
+.negative {
+    color: red;
+}
+
+select[id$='-nodelevel'] {
+    width: 50px;
+    margin-bottom: 7px;
+    height: 23px;
+}
+
+#playerClass {
+    margin-bottom: 7px;
+}
+
+
+@media (max-width: 1720px) {
+    .main-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-bottom: 80px;
+    }
+
+    .engraving-display {
+        align-self: center;
+
+    }
+}

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA Engraving Simulator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+</head>
+
+<body>
+    <h1 class="text-center display-2 text-white fw-normal pb-5 pt-3">Lost Ark Engraving Simulator</h1>
+
+    <!-- Start of Main Container -->
+    <div class="main-container">
+
+        <div class="engraving-display">
+        </div>
+        <div class="engravings-and-accessories">
+
+            <div class="playerClass-equipped-engravings">
+                <label for="playerClass">Class</label>
+
+                <select name="playerClass" id="playerClass">
+                </select>
+                <label for="engraving1">Engraving 1</label>
+
+                <div class="engraving-level-pair">
+                    <select name="engraving1" id="engraving1">
+                    </select>
+                    <select name="engraving1-nodelevel" id="engraving1-nodelevel">
+                        <option value="0">+0</option>
+                        <option value="3">+3</option>
+                        <option value="6">+6</option>
+                        <option value="9">+9</option>
+                        <option value="12">+12</option>
+                    </select>
+                </div>
+
+
+                <label for="engraving2">Engraving 2</label>
+
+                <div class="engraving-level-pair">
+                    <select name="engraving2" id="engraving2">
+                    </select>
+                    <select name="engraving1-nodelevel" id="engraving2-nodelevel">
+                        <option value="0">+0</option>
+                        <option value="3">+3</option>
+                        <option value="6">+6</option>
+                        <option value="9">+9</option>
+                        <option value="12">+12</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="accessories">
+
+                <div class="accessory-row">
+
+                    <div class="accessory">
+                        <label for="necklace-engraving1">Necklace</label>
+
+                        <div class="engraving-level-pair">
+                            <select name="necklace-engraving1" id="necklace-engraving1">
+                            </select>
+                            <select name="necklace-engraving1-nodelevel" id="necklace-engraving1-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+
+                        <div class="engraving-level-pair">
+                            <select name="necklace-engraving2" id="necklace-engraving2">
+                            </select>
+                            <select name="necklace-engraving2-nodelevel" id="necklace-engraving2-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+
+                        <div class="engraving-level-pair">
+                            <select name="necklace-negative" id="necklace-negative">
+                                <option value="Atk. Speed Reduction">Atk. Speed Reduction</option>
+                                <option value="Atk. Power Reduction">Atk. Power Reduction</option>
+                                <option value="Defense Reduction">Defense Reduction</option>
+                                <option value="Move Speed Reduction">Move Speed Reduction</option>
+                            </select>
+                            <select name="necklace-negative-nodelevel" id="necklace-negative-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="accessory">
+                        <label for="earring-engraving1">Earring 1</label>
+                        <div class="engraving-level-pair">
+                            <select name="earring1-engraving1" id="earring1-engraving1">
+                            </select>
+                            <select name="earring1-engraving1-nodelevel" id="earring1-engraving1-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+
+                        <div class="engraving-level-pair">
+                            <select name="earring1-engraving2" id="earring1-engraving2">
+                            </select>
+                            <select name="earring1-engraving2-nodelevel" id="earring1-engraving2-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+
+                        <div class="engraving-level-pair">
+                            <select name="earring1-negative" id="earring1-negative">
+                                <option value="Atk. Speed Reduction">Atk. Speed Reduction</option>
+                                <option value="Atk. Power Reduction">Atk. Power Reduction</option>
+                                <option value="Defense Reduction">Defense Reduction</option>
+                                <option value="Move Speed Reduction">Move Speed Reduction</option>
+                            </select>
+                            <select name="earring1-negative-nodelevel" id="earring1-negative-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="accessory">
+                        <label for="earring2-engraving1">Earring 2</label>
+                        <div class="engraving-level-pair">
+                            <select name="earring2-engraving1" id="earring2-engraving1">
+                            </select>
+                            <select name="earring2-engraving1-nodelevel" id="earring2-engraving1-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+
+                        <div class="engraving-level-pair">
+                            <select name="earring2-engraving2" id="earring2-engraving2">
+                            </select>
+                            <select name="earring2-engraving2-nodelevel" id="earring2-engraving2-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+                        <div class="engraving-level-pair">
+                            <select name="earring2-negative" id="earring2-negative">
+                                <option value="Atk. Speed Reduction">Atk. Speed Reduction</option>
+                                <option value="Atk. Power Reduction">Atk. Power Reduction</option>
+                                <option value="Defense Reduction">Defense Reduction</option>
+                                <option value="Move Speed Reduction">Move Speed Reduction</option>
+                            </select>
+                            <select name="earring2-negative-nodelevel" id="earring2-negative-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- End of Accessory Row -->
+                </div>
+
+                <div class="accessory-row">
+                    <div class="accessory">
+                        <label for="ring1-engraving1">Ring 1</label>
+                        <div class="engraving-level-pair">
+                            <select name="ring1-engraving1" id="ring1-engraving1">
+                            </select>
+                            <select name="ring1-engraving1-nodelevel" id="ring1-engraving1-nodelevel">
+                                <option value="0">+0</option>
+
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+                        <div class="engraving-level-pair">
+                            <select name="ring1-engraving2" id="ring1-engraving2">
+                            </select>
+                            <select name="ring1-engraving2-nodelevel" id="ring1-engraving2-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+                        <div class="engraving-level-pair">
+                            <select name="ring1-negative" id="ring1-negative">
+                                <option value="Atk. Speed Reduction">Atk. Speed Reduction</option>
+                                <option value="Atk. Power Reduction">Atk. Power Reduction</option>
+                                <option value="Defense Reduction">Defense Reduction</option>
+                                <option value="Move Speed Reduction">Move Speed Reduction</option>
+                            </select>
+                            <select name="ring1-negative-nodelevel" id="ring1-negative-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="accessory">
+                        <label for="ring2-engraving1">Ring 2</label>
+                        <div class="engraving-level-pair">
+                            <select name="ring2-engraving1" id="ring2-engraving1">
+                            </select>
+                            <select name="ring2-engraving1-nodelevel" id="ring2-engraving1-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+                        <div class="engraving-level-pair">
+                            <select name="ring2-engraving2" id="ring2-engraving2">
+                            </select>
+                            <select name="ring2-engraving2-nodelevel" id="ring2-engraving2-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+                        <div class="engraving-level-pair">
+                            <select name="ring2-negative" id="ring2-negative">
+                                <option value="Atk. Speed Reduction">Atk. Speed Reduction</option>
+                                <option value="Atk. Power Reduction">Atk. Power Reduction</option>
+                                <option value="Defense Reduction">Defense Reduction</option>
+                                <option value="Move Speed Reduction">Move Speed Reduction</option>
+                            </select>
+                            <select name="ring2-negative-nodelevel" id="ring2-negative-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="accessory">
+                        <label for="abilitystone-engraving1">Ability Stone</label>
+                        <div class="engraving-level-pair">
+                            <select name="abilitystone-engraving1" id="abilitystone-engraving1">
+                            </select>
+                            <select name="abilitystone-engraving1-nodelevel" id="abilitystone-engraving1-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+                        <div class="engraving-level-pair">
+                            <select name="abilitystone-engraving2" id="abilitystone-engraving2">
+                            </select>
+                            <select name="abilitystone-engraving2-nodelevel" id="abilitystone-engraving2-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                                <option value="4">+4</option>
+                                <option value="5">+5</option>
+                            </select>
+                        </div>
+                        <div class="engraving-level-pair">
+                            <select name="abilitystone-negative" id="abilitystone-negative">
+                                <option value="Atk. Speed Reduction">Atk. Speed Reduction</option>
+                                <option value="Atk. Power Reduction">Atk. Power Reduction</option>
+                                <option value="Defense Reduction">Defense Reduction</option>
+                                <option value="Move Speed Reduction">Move Speed Reduction</option>
+                            </select>
+                            <select name="abilitystone-negative-nodelevel" id="abilitystone-negative-nodelevel">
+                                <option value="0">+0</option>
+                                <option value="1">+1</option>
+                                <option value="2">+2</option>
+                                <option value="3">+3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- End of Accessory Row -->
+                </div>
+                <!-- End of Accessories -->
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- End of Main Container -->
+    </div>
+    <script src="public/javascripts/la_engraving_simulator.js"></script>
+
+</body>
+
+</html>

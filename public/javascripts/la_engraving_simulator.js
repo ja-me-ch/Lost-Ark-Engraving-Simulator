@@ -139,6 +139,10 @@ const abilitystone_engraving2_nodelevel = document.getElementById('abilitystone-
 const abilitystone_negative = document.getElementById('abilitystone-negative');
 const abilitystone_negative_nodelevel = document.getElementById('abilitystone-negative-nodelevel');
 
+// Internal Engraving Arrays
+const consolidatedEngravings = [];
+const negativeEngravings = [];
+
 // Selector Related Functions
 
 const populateClassDropdown = function () {
@@ -153,7 +157,6 @@ const populateClassDropdown = function () {
 }
 
 const populateClassEngravings = function () {
-
     const selectedClass = classEngravings.find(e => e.class === playerClass.value);
     const classAndBattleEngravings = selectedClass.engravings.concat(battleEngravings);
 
@@ -177,6 +180,27 @@ const populateClassEngravings = function () {
 
     populateSelect(abilitystone_engraving1, battleEngravings);
     populateSelect(abilitystone_engraving2, battleEngravings);
+    
+    engraving1_nodelevel.selectedIndex = 0;
+    engraving2_nodelevel.selectedIndex = 0;
+    necklace_engraving1_nodelevel.selectedIndex = 0;
+    necklace_engraving2_nodelevel.selectedIndex = 0;
+    necklace_negative_nodelevel.selectedIndex = 0;
+    earring1_engraving1_nodelevel.selectedIndex = 0;
+    earring1_engraving2_nodelevel.selectedIndex = 0;
+    earring1_negative_nodelevel.selectedIndex = 0;
+    earring2_engraving1_nodelevel.selectedIndex = 0;
+    earring2_engraving2_nodelevel.selectedIndex = 0;
+    earring2_negative_nodelevel.selectedIndex = 0;
+    ring1_engraving1_nodelevel.selectedIndex = 0;
+    ring1_engraving2_nodelevel.selectedIndex = 0;
+    ring2_engraving1_nodelevel.selectedIndex = 0;
+    ring2_engraving2_nodelevel.selectedIndex = 0;
+    abilitystone_engraving1_nodelevel.selectedIndex = 0;
+    abilitystone_engraving2_nodelevel.selectedIndex = 0;
+    abilitystone_negative_nodelevel.selectedIndex = 0;
+    resetEngravings();
+    createEngravingDisplayRow();
 }
 
 const populateSelect = function (selector, array) {
@@ -187,10 +211,6 @@ const populateSelect = function (selector, array) {
         option.value = array[i];
         selector.appendChild(option);
     }
-}
-
-const clearAndPopulate = function (selector, array) {
-
 }
 
 // Engraving Display Related Functions
@@ -207,8 +227,6 @@ const updateEngravingsAndLevel = function (event) {
     if (equippableEngravingsSelector.includes(event.target.id)) {
         engravingName = event.target.value
     }
-
-    //console.dir(event.target);
 
     if (isNaN(nodeLevel)) {
         nodeLevel = parseInt(event.path[1].lastElementChild.value);
@@ -232,12 +250,15 @@ const updateEngravingsAndLevel = function (event) {
     consolidateAndFilterEngravingsAndLevels();
 }
 
-const consolidatedEngravings = [];
-const negativeEngravings = [];
 
-const consolidateAndFilterEngravingsAndLevels = function () {
+
+const resetEngravings = function () {
     consolidatedEngravings.length = 0;
     negativeEngravings.length = 0;
+}
+
+const consolidateAndFilterEngravingsAndLevels = function () {
+    resetEngravings();
 
     engravingsAndLevels.forEach(element => {
         if (consolidatedEngravings.find(x => x.engravingName === element.engravingName) === undefined) {
@@ -276,8 +297,6 @@ const consolidateAndFilterEngravingsAndLevels = function () {
     consolidatedEngravings.push(...negativeEngravings);
     console.log('Concat\'d Engravings:\n', consolidatedEngravings);
 
-    engravingDisplay[0].innerHTML = '';
-
     consolidatedEngravings.forEach(e => {
         if (e.nodeLevel > 0) {
             engravingDisplay[0].append(createEngravingDisplayRow(e.engravingName, e.nodeLevel));
@@ -287,6 +306,7 @@ const consolidateAndFilterEngravingsAndLevels = function () {
 }
 
 const createEngravingDisplayRow = function (engravingName, nodeLevel) {
+    engravingDisplay[0].innerHTML = '';
     const engraving_display_row = document.createElement('div');
     const h2 = document.createElement('h2');
 
@@ -349,7 +369,7 @@ const createEngravingDisplayRow = function (engravingName, nodeLevel) {
 populateClassDropdown();
 populateClassEngravings();
 playerClass.addEventListener('change', populateClassEngravings);
-playerClass.addEventListener('change', updateEngravingsAndLevel);
+//playerClass.addEventListener('change', updateEngravingsAndLevel);
 
 const nodeLevelEventListeners = function () {
     engraving1_nodelevel.addEventListener('change', updateEngravingsAndLevel);

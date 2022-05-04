@@ -12,70 +12,59 @@ const battleEngravings = [
 
 const classEngravings = [
     {
-        class: 'Berserker',
-        engravings: ['Berserker\'s Technique', 'Mayhem']
+        class: 'Berserker', engravings: ['Berserker\'s Technique', 'Mayhem']
     },
     {
-        class: 'Paladin',
-        engravings: ['Blessed Aura', 'Judgment']
+        class: 'Paladin', engravings: ['Blessed Aura', 'Judgment']
     },
     {
-        class: 'Gunlancer',
-        engravings: ['Combat Readiness', 'Lone Knight']
+        class: 'Gunlancer', engravings: ['Combat Readiness', 'Lone Knight']
     },
     {
-        class: 'Striker',
-        engravings: ['Deathblow', 'Esoteric Flurry']
+        class: 'Striker', engravings: ['Deathblow', 'Esoteric Flurry']
     },
     {
-        class: 'Wardancer',
-        engravings: ['Esoteric Skill Enhancement', 'First Intention']
+        class: 'Wardancer', engravings: ['Esoteric Skill Enhancement', 'First Intention']
     },
     {
-        class: 'Scrapper',
-        engravings: ['Shock Training', 'Ultimate Skill: Taijutsu']
+        class: 'Scrapper', engravings: ['Shock Training', 'Ultimate Skill: Taijutsu']
     },
     {
-        class: 'Soulfist',
-        engravings: ['Energy Overflow', 'Robust Spirit']
+        class: 'Soulfist', engravings: ['Energy Overflow', 'Robust Spirit']
     },
     {
-        class: 'Glaivier',
-        engravings: ['Control', 'Pinnacle']
+        class: 'Glaivier', engravings: ['Control', 'Pinnacle']
     },
     {
-        class: 'Gunslinger',
-        engravings: ['Peacemaker', 'Time to Hunt']
+        class: 'Gunslinger', engravings: ['Peacemaker', 'Time to Hunt']
     },
     {
-        class: 'Artillerist',
-        engravings: ['Barrage Enhancement', 'Firepower Enhancement']
+        class: 'Artillerist', engravings: ['Barrage Enhancement', 'Firepower Enhancement']
     },
     {
-        class: 'Deadeye',
-        engravings: ['Enhanced Weapon', 'Pistoleer']
+        class: 'Deadeye', engravings: ['Enhanced Weapon', 'Pistoleer']
     },
     {
-        class: 'Sharpshooter',
-        engravings: ['Death Strike', 'Loyal Companion']
+        class: 'Sharpshooter', engravings: ['Death Strike', 'Loyal Companion']
     },
     {
-        class: 'Bard',
-        engravings: ['Desperate Salvation', 'True Courage']
+        class: 'Bard', engravings: ['Desperate Salvation', 'True Courage']
     },
     {
-        class: 'Sorceress',
-        engravings: ['Igniter', 'Reflux']
+        class: 'Sorceress', engravings: ['Igniter', 'Reflux']
     },
     {
-        class: 'Shadowhunter',
-        engravings: ['Demonic Impulse', 'Perfect Suppression']
+        class: 'Shadowhunter', engravings: ['Demonic Impulse', 'Perfect Suppression']
     },
     {
-        class: 'Deathblade',
-        engravings: ['Surge', 'Remaining Energy']
+        class: 'Deathblade', engravings: ['Surge', 'Remaining Energy']
     }
 ]
+
+
+/*
+    ELEMENTS
+*/
 
 //Engraving Display
 const engravingDisplay = document.getElementsByClassName('engraving-display');
@@ -143,7 +132,9 @@ const abilitystone_negative_nodelevel = document.getElementById('abilitystone-ne
 const consolidatedEngravings = [];
 const negativeEngravings = [];
 
-// Selector Related Functions
+/*
+    FUNCTIONS
+*/
 
 const populateClassDropdown = function () {
     const classList = classEngravings.map(x => x.class);
@@ -180,7 +171,7 @@ const populateClassEngravings = function () {
 
     populateSelect(abilitystone_engraving1, battleEngravings);
     populateSelect(abilitystone_engraving2, battleEngravings);
-    
+
     engraving1_nodelevel.selectedIndex = 0;
     engraving2_nodelevel.selectedIndex = 0;
     necklace_engraving1_nodelevel.selectedIndex = 0;
@@ -275,11 +266,11 @@ const consolidateAndFilterEngravingsAndLevels = function () {
         }
     });
 
-    console.log(consolidatedEngravings);
+    //console.log(consolidatedEngravings);
 
     for (let i = consolidatedEngravings.length - 1; i >= 0; i--) {
         if (RegExp(/Reduction/).test(consolidatedEngravings[i].engravingName)) {
-            console.log(consolidatedEngravings[i].engravingName, 'contains \'Reduction\'');
+            //console.log(consolidatedEngravings[i].engravingName, 'contains \'Reduction\'');
             negativeEngravings.push(...consolidatedEngravings.splice(i, 1))
         }
     }
@@ -295,18 +286,17 @@ const consolidateAndFilterEngravingsAndLevels = function () {
     });
 
     consolidatedEngravings.push(...negativeEngravings);
-    console.log('Concat\'d Engravings:\n', consolidatedEngravings);
+    //console.log('Concat\'d Engravings:\n', consolidatedEngravings);
 
+    engravingDisplay[0].innerHTML = '';
     consolidatedEngravings.forEach(e => {
         if (e.nodeLevel > 0) {
             engravingDisplay[0].append(createEngravingDisplayRow(e.engravingName, e.nodeLevel));
         }
-    })
-
+    });
 }
 
 const createEngravingDisplayRow = function (engravingName, nodeLevel) {
-    engravingDisplay[0].innerHTML = '';
     const engraving_display_row = document.createElement('div');
     const h2 = document.createElement('h2');
 
@@ -361,7 +351,6 @@ const createEngravingDisplayRow = function (engravingName, nodeLevel) {
         }
         engraving_display_row.append(span);
     }
-
     return engraving_display_row;
 
 }
@@ -369,7 +358,7 @@ const createEngravingDisplayRow = function (engravingName, nodeLevel) {
 populateClassDropdown();
 populateClassEngravings();
 playerClass.addEventListener('change', populateClassEngravings);
-//playerClass.addEventListener('change', updateEngravingsAndLevel);
+playerClass.addEventListener('change', updateEngravingsAndLevel);
 
 const nodeLevelEventListeners = function () {
     engraving1_nodelevel.addEventListener('change', updateEngravingsAndLevel);

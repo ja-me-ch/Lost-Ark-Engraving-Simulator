@@ -21,6 +21,9 @@ const classEngravings = [
         class: 'Gunlancer', engravings: ['Combat Readiness', 'Lone Knight']
     },
     {
+        class: 'Destroyer', engravings: ['Gravity Training', 'Rage Hammer']
+    },
+    {
         class: 'Striker', engravings: ['Deathblow', 'Esoteric Flurry']
     },
     {
